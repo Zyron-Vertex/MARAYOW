@@ -1,0 +1,16 @@
+{
+  "name": "marayow-pixel-adventure",
+  "version": "0.2.0",
+  "private": true,
+  "description": "A learning project: a pixel platform game with WebSocket rooms.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ws": "^8.22.0"
+  }
+}

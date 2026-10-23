@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SUPER MARIO BROS.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="screen" width="512" height="480"></canvas>
+  <!-- 触屏按键 -->
+  <div id="touch">
+    <div class="tbtn" id="tLeft">◀</div>
+    <div class="tbtn" id="tRight">▶</div>
+    <div class="tbtn" id="tJump">A</div>
+    <div class="tbtn" id="tRun">B</div>
+  </div>
+  <div id="hint">
+    方向键/WASD 移动 · Z/Space 跳 · X/Shift 加速 · P 暂停 · Enter 开始
+  </div>
+  <form id="onlinePanel" autocomplete="off">
+    <label for="roomCode">联机房间</label>
+    <input id="roomCode" maxlength="16" value="WORLD1" aria-label="房间号">
+    <button type="submit">加入</button>
+    <span id="onlineStatus" aria-live="polite">单机模式</span>
+  </form>
+</div>
+<script src="js/sprites.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/level.js"></script>
+<script src="js/network.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

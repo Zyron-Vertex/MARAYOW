@@ -1,0 +1,11 @@
+# Local assistant/session data
+.workbuddy/
+
+# Node.js dependencies and machine-local settings
+mario-game/node_modules/
+mario-game/.env
+mario-game/.env.*
+!mario-game/.env.example
+
+# Debug logs
+npm-debug.log*

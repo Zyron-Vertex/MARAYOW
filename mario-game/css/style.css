@@ -1,0 +1,61 @@
+* { margin:0; padding:0; box-sizing:border-box; user-select:none; -webkit-user-select:none; }
+html,body { width:100%; height:100%; background:#000; overflow:hidden; }
+#wrap { position:relative; width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; }
+canvas#screen {
+  background:#5c94fc;
+  image-rendering:pixelated; image-rendering:crisp-edges;
+  max-width:100vw; max-height:100vh;
+  width:auto; height:100vh;
+  touch-action:none;
+}
+/* 竖向屏幕时按宽度适配 */
+@media (orientation: portrait) {
+  canvas#screen { width:100vw; height:auto; }
+}
+
+/* 触屏按键 */
+#touch { display:none; position:absolute; inset:0; pointer-events:none; z-index:5; }
+@media (pointer:coarse) { #touch { display:block; } #hint { display:none; } }
+.tbtn {
+  position:absolute; pointer-events:auto;
+  width:84px; height:84px; border-radius:50%;
+  background:rgba(255,255,255,.18); border:3px solid rgba(255,255,255,.45);
+  color:#fff; font:bold 30px/78px sans-serif; text-align:center;
+  bottom:14px;
+}
+#tLeft  { left:16px; }
+#tRight { left:112px; }
+#tJump  { right:112px; font-size:26px; }
+#tRun   { right:16px; }
+.tbtn:active { background:rgba(255,255,255,.4); }
+
+#hint {
+  position:absolute; left:0; right:0; bottom:6px; text-align:center;
+  color:#fff; font:13px/1.6 monospace; text-shadow:0 1px 2px #000;
+  pointer-events:none; z-index:4;
+}
+
+/* 在线房间入口：运行在服务器上后，输入相同房间号的玩家会互相看见。 */
+#onlinePanel {
+  position:absolute; top:14px; right:14px; z-index:6;
+  display:flex; align-items:center; gap:7px;
+  padding:7px 9px; border:2px solid rgba(255,255,255,.85);
+  background:rgba(24,32,72,.88); color:#fff;
+  font:12px monospace; box-shadow:2px 2px 0 rgba(0,0,0,.3);
+}
+#onlinePanel label { white-space:nowrap; }
+#roomCode {
+  width:88px; padding:5px 6px; border:1px solid #9fb7ff;
+  background:#101b48; color:#fff; font:12px monospace; text-transform:uppercase;
+}
+#onlinePanel button {
+  padding:5px 9px; border:1px solid #fff; background:#e52521;
+  color:#fff; font:bold 12px monospace; cursor:pointer;
+}
+#onlinePanel button:hover { background:#ff514a; }
+#onlineStatus { min-width:82px; color:#ffe36a; }
+@media (max-width:560px) {
+  #onlinePanel { top:8px; right:8px; gap:4px; padding:5px; font-size:10px; }
+  #roomCode { width:66px; font-size:10px; }
+  #onlineStatus { min-width:54px; }
+}

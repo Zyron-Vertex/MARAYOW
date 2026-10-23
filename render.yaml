@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: marayow-pixel-adventure
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: mario-game
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: commit
